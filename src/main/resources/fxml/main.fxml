@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="rootPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.simulador.memoria.controller.MainController"
+            stylesheets="@../css/estilos.css">
+    <top>
+        <VBox spacing="4" styleClass="header">
+            <Label text="Simulador de Administración de Memoria" styleClass="titulo-app"/>
+            <Label text="Sistemas Operativos — Asignación Contigua y Paginación" styleClass="subtitulo-app"/>
+        </VBox>
+    </top>
+    <center>
+        <TabPane tabClosingPolicy="UNAVAILABLE" styleClass="tab-pane-principal">
+            <Tab fx:id="tabAsignacion" text="Asignación de Memoria"/>
+            <Tab fx:id="tabPaginacion" text="Paginación y Traducción"/>
+        </TabPane>
+    </center>
+</BorderPane>

@@ -1,0 +1,28 @@
+{
+  "tipo": "paginacion",
+  "tamanoPagina": 4096,
+  "memoriaFisica": 16384,
+  "procesos": [
+    {
+      "id": "P1",
+      "espacioVirtual": 32768,
+      "paginasCargadas": [
+        { "pagina": 0, "marco": 0 },
+        { "pagina": 1, "marco": 2 },
+        { "pagina": 3, "marco": 1 }
+      ]
+    },
+    {
+      "id": "P2",
+      "espacioVirtual": 16384,
+      "paginasCargadas": [
+        { "pagina": 0, "marco": 3 }
+      ]
+    }
+  ],
+  "traducciones": [
+    { "procesoId": "P1", "direccionVirtual": 5000 },
+    { "procesoId": "P1", "direccionVirtual": 15000 },
+    { "procesoId": "P2", "direccionVirtual": 8192 }
+  ]
+}

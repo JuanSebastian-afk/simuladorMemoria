@@ -1,0 +1,16 @@
+# Archivo de entrada para Paginación (formato texto)
+TIPO paginacion
+MEMORIA_FISICA 16384
+TAMANO_PAGINA 4096
+
+# Proceso: PROCESO <id> <espacio_virtual_bytes>
+PROCESO P1 32768
+PAGINA 0 0
+PAGINA 1 2
+PAGINA 3 1
+
+PROCESO P2 16384
+PAGINA 0 3
+
+# Traducción: TRADUCIR <proceso_id> <direccion_virtual>
+TRADUCIR P1 5000

@@ -1,0 +1,14 @@
+# Archivo de entrada para Asignación de Memoria (formato texto)
+TIPO asignacion
+MEMORIA 1024
+ESTRATEGIA WORST_FIT
+
+# Procesos iniciales: PROCESO <id> <tamano_KB>
+PROCESO P1 200
+PROCESO P2 150
+PROCESO P3 300
+
+# Operaciones: OPERACION <ASIGNAR|LIBERAR> <id> [tamano]
+OPERACION LIBERAR P2
+OPERACION ASIGNAR P4 180
+OPERACION ASIGNAR P5 100

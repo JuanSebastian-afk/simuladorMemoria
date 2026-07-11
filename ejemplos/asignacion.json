@@ -1,0 +1,15 @@
+{
+  "tipo": "asignacion",
+  "memoriaTotal": 1024,
+  "estrategia": "BEST_FIT",
+  "procesos": [
+    { "id": "P1", "tamano": 200 },
+    { "id": "P2", "tamano": 150 },
+    { "id": "P3", "tamano": 300 }
+  ],
+  "operaciones": [
+    { "accion": "LIBERAR", "procesoId": "P2", "tamano": 0 },
+    { "accion": "ASIGNAR", "procesoId": "P4", "tamano": 180 },
+    { "accion": "ASIGNAR", "procesoId": "P5", "tamano": 100 }
+  ]
+}

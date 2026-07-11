@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.simulador.memoria.controller.AsignacionController">
+    <padding>
+        <Insets top="12" right="16" bottom="12" left="16"/>
+    </padding>
+
+    <left>
+        <VBox spacing="12" prefWidth="280" styleClass="panel-lateral">
+            <Label text="Configuración" styleClass="seccion-titulo"/>
+
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <Label text="Memoria total (KB):"/>
+                <Spinner fx:id="spinnerMemoriaTotal" prefWidth="100"/>
+            </HBox>
+
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <Label text="Estrategia:"/>
+                <ComboBox fx:id="comboEstrategia" prefWidth="140" onAction="#onCambiarEstrategia"/>
+            </HBox>
+
+            <Button text="Inicializar Memoria" onAction="#onInicializar" styleClass="btn-primario"/>
+
+            <Separator/>
+
+            <Label text="Asignar Proceso" styleClass="seccion-titulo"/>
+            <TextField fx:id="campoIdProceso" promptText="ID del proceso (ej. P1)"/>
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <Label text="Tamaño (KB):"/>
+                <Spinner fx:id="spinnerTamanoProceso" prefWidth="100"/>
+            </HBox>
+            <Button text="Asignar" onAction="#onAsignar" styleClass="btn-secundario"/>
+
+            <Separator/>
+
+            <Label text="Liberar Proceso" styleClass="seccion-titulo"/>
+            <ComboBox fx:id="comboLiberar" promptText="Seleccionar proceso" prefWidth="200"/>
+            <Button text="Liberar Memoria" onAction="#onLiberar" styleClass="btn-peligro"/>
+
+            <Separator/>
+
+            <Button text="Cargar Archivo (.json/.txt)" onAction="#onCargarArchivo" styleClass="btn-archivo"/>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="12">
+            <HBox spacing="24" styleClass="metricas-panel">
+                <VBox spacing="2">
+                    <Label text="Fragmentación Externa" styleClass="metrica-label"/>
+                    <Label fx:id="lblFragmentacionExterna" text="0.00 %" styleClass="metrica-valor"/>
+                </VBox>
+                <VBox spacing="2">
+                    <Label text="Fragmentación Interna" styleClass="metrica-label"/>
+                    <Label fx:id="lblFragmentacionInterna" text="0 KB" styleClass="metrica-valor"/>
+                </VBox>
+                <VBox spacing="2">
+                    <Label text="Memoria Libre" styleClass="metrica-label"/>
+                    <Label fx:id="lblMemoriaLibre" text="0 KB" styleClass="metrica-valor"/>
+                </VBox>
+                <VBox spacing="2">
+                    <Label text="Memoria Ocupada" styleClass="metrica-label"/>
+                    <Label fx:id="lblMemoriaOcupada" text="0 KB" styleClass="metrica-valor"/>
+                </VBox>
+            </HBox>
+
+            <Label text="Mapa de Memoria" styleClass="seccion-titulo"/>
+            <ScrollPane fx:id="scrollMemoria" fitToHeight="true" styleClass="scroll-memoria">
+                <HBox fx:id="contenedorMemoria" spacing="2" alignment="CENTER_LEFT"/>
+            </ScrollPane>
+
+            <HBox spacing="16" VBox.vgrow="ALWAYS">
+                <VBox spacing="6" HBox.hgrow="ALWAYS">
+                    <Label text="Procesos Activos" styleClass="seccion-titulo"/>
+                    <ListView fx:id="listaProcesos" VBox.vgrow="ALWAYS"/>
+                </VBox>
+                <VBox spacing="6" HBox.hgrow="ALWAYS">
+                    <Label text="Registro de Operaciones" styleClass="seccion-titulo"/>
+                    <TextArea fx:id="areaLog" editable="false" wrapText="true" VBox.vgrow="ALWAYS"/>
+                </VBox>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

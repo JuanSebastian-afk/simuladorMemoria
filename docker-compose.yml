@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  simulador-memoria:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: simulador-memoria
+    ports:
+      # Puerto VNC directo (cliente VNC como Remmina, TigerVNC)
+      - "5901:5901"
+      # Puerto noVNC (acceso vía navegador web)
+      - "6080:6080"
+    environment:
+      - DISPLAY=:1
+      - VNC_PASSWORD=memoria123
+      - JAVA_TOOL_OPTIONS=-Dprism.order=sw
+    volumes:
+      # Montar ejemplos para cargar archivos desde el contenedor
+      - ./ejemplos:/app/ejemplos:ro
+    shm_size: "256mb"
+    restart: unless-stopped

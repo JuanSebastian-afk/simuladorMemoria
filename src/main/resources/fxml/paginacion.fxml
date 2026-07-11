@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.simulador.memoria.controller.PaginacionController">
+    <padding>
+        <Insets top="12" right="16" bottom="12" left="16"/>
+    </padding>
+
+    <left>
+        <VBox spacing="10" prefWidth="280" styleClass="panel-lateral">
+            <Label text="Configuración" styleClass="seccion-titulo"/>
+
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <Label text="Mem. Física (B):"/>
+                <Spinner fx:id="spinnerMemoriaFisica" prefWidth="110"/>
+            </HBox>
+
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <Label text="Tamaño Página:"/>
+                <ComboBox fx:id="comboTamanoPagina" prefWidth="110"/>
+            </HBox>
+
+            <Button text="Inicializar Sistema" onAction="#onInicializar" styleClass="btn-primario"/>
+
+            <Separator/>
+
+            <Label text="Registrar Proceso" styleClass="seccion-titulo"/>
+            <TextField fx:id="campoIdProceso" promptText="ID del proceso"/>
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <Label text="Esp. Virtual (B):"/>
+                <Spinner fx:id="spinnerEspacioVirtual" prefWidth="110"/>
+            </HBox>
+            <Button text="Registrar" onAction="#onRegistrarProceso" styleClass="btn-secundario"/>
+
+            <Separator/>
+
+            <Label text="Cargar Página" styleClass="seccion-titulo"/>
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <Label text="Página #:"/>
+                <Spinner fx:id="spinnerPaginaCargar" prefWidth="80"/>
+            </HBox>
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <Label text="Marco #:"/>
+                <Spinner fx:id="spinnerMarcoAsignar" prefWidth="80"/>
+            </HBox>
+            <Button text="Cargar en Marco" onAction="#onCargarPagina" styleClass="btn-secundario"/>
+
+            <Separator/>
+
+            <Label text="Traducir Dirección" styleClass="seccion-titulo"/>
+            <ComboBox fx:id="comboProcesoTraducir" promptText="Proceso" prefWidth="200"/>
+            <TextField fx:id="campoDireccionVirtual" promptText="Dirección virtual (entero)"/>
+            <Button text="Traducir DV → DF" onAction="#onTraducir" styleClass="btn-primario"/>
+
+            <Separator/>
+            <Button text="Cargar Archivo (.json/.txt)" onAction="#onCargarArchivo" styleClass="btn-archivo"/>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="12">
+            <Label fx:id="lblResultadoTraduccion" text="Ingrese una dirección virtual para traducir"
+                   styleClass="resultado-banner" wrapText="true"/>
+
+            <Label text="Cálculo Paso a Paso" styleClass="seccion-titulo"/>
+            <TextArea fx:id="areaPasos" editable="false" wrapText="true" prefRowCount="8"/>
+
+            <HBox spacing="16" VBox.vgrow="ALWAYS">
+                <VBox spacing="6" HBox.hgrow="ALWAYS">
+                    <Label text="Memoria Física (Marcos)" styleClass="seccion-titulo"/>
+                    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
+                        <GridPane fx:id="gridMarcos" hgap="8" vgap="8"/>
+                    </ScrollPane>
+                </VBox>
+
+                <VBox spacing="6" prefWidth="280">
+                    <Label text="Tabla de Páginas" styleClass="seccion-titulo"/>
+                    <TableView fx:id="tablaPaginas" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="colPagina" text="Página" prefWidth="70"/>
+                            <TableColumn fx:id="colMarco" text="Marco" prefWidth="70"/>
+                            <TableColumn fx:id="colValida" text="Validez" prefWidth="70"/>
+                        </columns>
+                    </TableView>
+
+                    <Label text="Marcos Disponibles" styleClass="seccion-titulo"/>
+                    <ListView fx:id="listaMarcos" prefHeight="100"/>
+                </VBox>
+            </HBox>
+
+            <Label text="Registro" styleClass="seccion-titulo"/>
+            <TextArea fx:id="areaLog" editable="false" wrapText="true" prefRowCount="4"/>
+        </VBox>
+    </center>
+</BorderPane>
