@@ -1,6 +1,6 @@
 # Simulador de Administración de Memoria
 
-Simulador educativo para la asignatura de **Sistemas Operativos** que permite experimentar con dos mecanismos fundamentales de gestión de memoria: **asignación contigua** (First Fit, Best Fit, Worst Fit) y **paginación de un solo nivel** con traducción de direcciones virtuales a físicas.
+Simulador de planificador de memoria para la asignatura de **Sistemas Operativos** que permite experimentar con dos mecanismos fundamentales de gestión de memoria: **asignación contigua** (First Fit, Best Fit, Worst Fit) y **paginación de un solo nivel** con traducción de direcciones virtuales a físicas.
 
 Desarrollado en **Java 17+** con **JavaFX** para la interfaz gráfica, **Maven** como gestor de dependencias y **Docker** para despliegue multiplataforma con acceso remoto a la GUI.
 
@@ -292,9 +292,3 @@ TRADUCIR P1 5000
 ```
 
 Ejemplos completos disponibles en la carpeta [`ejemplos/`](ejemplos/).
-
----
-
-## Licencia
-
-Este proyecto fue desarrollado con fines educativos para la asignatura de Sistemas Operativos.
